@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ProgramModule"
+  Version="12.2.1.9.14"
+  InheritPersonalization="merge"
+  ClearCacheOnRollback="true"
+  ComponentClass="blog.anirbanm.prog.model.am.ProgramModuleImpl"
+  ComponentInterface="blog.anirbanm.prog.model.am.common.ProgramModule">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewUsage
+    Name="EmployeesPVO1"
+    ViewObjectName="blog.anirbanm.prog.model.vo.EmployeesPVO"/>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="execute"
+      MethodName="execute">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+      <Parameter
+        Name="departmentId"
+        Type="java.lang.Integer"/>
+    </Method>
+  </ClientInterface>
+</AppModule>

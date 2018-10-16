@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <f:view>
+        <af:document title="Programmatic View Demo" id="d1">
+            <af:messages id="m1"/>
+            <af:form id="f1">
+                <af:pageTemplate viewId="/oracle/templates/threeColumnTemplate.jspx" id="pt1">
+                    <f:facet name="center">
+                        <af:panelGroupLayout id="pgl1" layout="vertical" styleClass="AFStretchWidth">
+                            <af:spacer width="10" height="10" id="s1"/>
+                            <af:subform id="s4" defaultCommand="b1">
+                                <af:panelFormLayout id="pfl1">
+                                    <af:inputText value="#{bindings.departmentId.inputValue}" label="Department"
+                                                  required="#{bindings.departmentId.hints.mandatory}"
+                                                  columns="#{bindings.departmentId.hints.displayWidth}"
+                                                  maximumLength="#{bindings.departmentId.hints.precision}"
+                                                  shortDesc="#{bindings.departmentId.hints.tooltip}" id="it1"
+                                                  autoComplete="off">
+                                        <f:validator binding="#{bindings.departmentId.validator}"/>
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.departmentId.format}"/>
+                                    </af:inputText>
+                                    <af:button actionListener="#{bindings.execute.execute}" text="execute"
+                                               disabled="#{!bindings.execute.enabled}" id="b1"/>
+                                </af:panelFormLayout>
+                            </af:subform>
+                            <af:spacer width="10" height="10" id="s2"/>
+                            <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+                                <af:table value="#{bindings.EmployeesPVO1.collectionModel}" var="row"
+                                          rows="#{bindings.EmployeesPVO1.rangeSize}" summary="Employees"
+                                          emptyText="#{bindings.EmployeesPVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0" fetchSize="#{bindings.EmployeesPVO1.rangeSize}" id="t1"
+                                          styleClass="AFStretchWidth" autoHeightRows="25">
+                                    <af:column headerText="Employee Id" id="c1" rowHeader="true" align="left">
+                                        <af:outputText value="#{row.EmployeeId}"
+                                                       shortDesc="#{bindings.EmployeesPVO1.hints.EmployeeId.tooltip}"
+                                                       id="ot2">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.EmployeesPVO1.hints.EmployeeId.format}"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    <af:column headerText="First Name" id="c2">
+                                        <af:outputText value="#{row.FirstName}"
+                                                       shortDesc="#{bindings.EmployeesPVO1.hints.FirstName.tooltip}"
+                                                       id="ot3"/>
+                                    </af:column>
+                                    <af:column headerText="Last Name" id="c3">
+                                        <af:outputText value="#{row.LastName}"
+                                                       shortDesc="#{bindings.EmployeesPVO1.hints.LastName.tooltip}"
+                                                       id="ot4"/>
+                                    </af:column>
+                                    <af:column headerText="Email" id="c4">
+                                        <af:outputText value="#{row.Email}"
+                                                       shortDesc="#{bindings.EmployeesPVO1.hints.Email.tooltip}"
+                                                       id="ot5"/>
+                                    </af:column>
+                                    <af:column headerText="Salary" id="c5">
+                                        <af:outputText value="#{row.Salary}"
+                                                       shortDesc="#{bindings.EmployeesPVO1.hints.Salary.tooltip}"
+                                                       id="ot6">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.EmployeesPVO1.hints.Salary.format}"/>
+                                        </af:outputText>
+                                    </af:column>
+                                </af:table>
+                            </af:panelCollection>
+                            <af:spacer width="10" height="10" id="s3"/>
+                        </af:panelGroupLayout>
+                    </f:facet>
+                    <f:facet name="header">
+                        <af:outputText value="Pogrammatic View Demo" id="ot1"/>
+                    </f:facet>
+                    <f:facet name="end"/>
+                    <f:facet name="start"/>
+                    <f:facet name="branding"/>
+                    <f:facet name="copyright"/>
+                    <f:facet name="status"/>
+                </af:pageTemplate>
+            </af:form>
+        </af:document>
+    </f:view>
+</jsp:root>
